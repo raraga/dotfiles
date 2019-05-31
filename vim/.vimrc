@@ -7,7 +7,6 @@
 
 " General Settings
 syntax on
-color dracula
 set number relativenumber
 set nu rnu
 filetype plugin on
@@ -24,12 +23,8 @@ filetype on                   " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" fuzzy finder
-set rtp+=/usr/local/opt/fzf
-
 "Key mappings
 map <C-o> :NERDTreeToggle<CR>
-map <C-\> :FZF<CR>
 
 " Latency Tweak for changing modes
 set timeoutlen=1000 ttimeoutlen=0
