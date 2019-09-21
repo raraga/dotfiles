@@ -1,31 +1,38 @@
-
-"General
-syntax on
-set number relativenumber
-set nu rnu
-set textwidth=80
+""""GENERAL SETTINGS
+filetype plugin indent on
+set nocompatible
+set relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set autoindent
-set nocompatible              " be iMproved, required
-filetype plugin on                   " required
-colorscheme pablo
+color torte 
 
-"Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
+""""PERFORMANCE TWEAKS
 "Latency Tweak for changing modes
 set timeoutlen=1000 ttimeoutlen=0
 
-"General Plugins
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'chriskempson/base16-vim'
+""""KEYMAPPINGS
+"Fuzzy Finding through FZF
+nmap <C-T> :Files<CR>
 
-"Web Plugins
-Plugin 'mattn/emmet-vim' "<C-y> , --default keymapping for Emmet
+"Buffers
+"Next
+map gn :bn<cr> 
+"Previous
+map gp :bp<cr>
+"Delete
+map gd :bd<cr>  
+
+""""RUNTIMES
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf ""Initialize FZF for vim
+
+""""PLUGINS
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'    " let Vundle manage Vundle, required
+Plugin 'junegunn/fzf.vim'
+Plugin 'bling/vim-bufferline'
+
 
 call vundle#end()
