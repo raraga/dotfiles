@@ -1,5 +1,5 @@
 # Dotfiles - Development configurations
-> Prettier syntax obviously means you work faster.
+> Let's get comfortable with our setup. 
 
 ## Installation Notes
 
