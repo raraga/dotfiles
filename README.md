@@ -10,4 +10,9 @@
 
 ### Querks with Vim Themes
 * `colorscheme` is very finnicky unless you create a `colors` directory first with copies of the selected theme.
-        
+
+### Applying Dracula theme to Kitty terminal 
+
+
+        $ cp dracula.conf ~/.config/kitty
+        $ echo "include dracula.conf" >> ~/.config/kitty/kitty.conf

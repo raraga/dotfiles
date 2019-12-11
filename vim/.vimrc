@@ -1,11 +1,13 @@
 """PLUGINS"""
 call plug#begin('~/.config/nvim/plugged')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'bling/vim-bufferline'
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'posva/vim-vue'
+Plug 'mengelbrecht/lightline-bufferline'
 call plug#end()
 
 """GENERAL SETTINGS"""
@@ -17,6 +19,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set noswapfile 
+set showtabline=2
 
 "Latency Tweak for changing modes
 set timeoutlen=1000 ttimeoutlen=0
@@ -46,8 +49,10 @@ inoremap jj <esc>
 cnoremap jj <C-C>
 
 """OTHER CONFIGS"""
+""Initialize FZF
+set rtp+=~/.fzf
 
-"For termguicolors
+""For termguicolors
 if (empty($TMUX))
   if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -57,7 +62,7 @@ if (empty($TMUX))
   endif
 endif
 
-"Lightline configuration 
+"Lightline config
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ 'active': {
@@ -68,3 +73,8 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+"Bufferline config
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
