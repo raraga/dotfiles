@@ -1,9 +1,5 @@
 # Dotfiles - Development configurations
-<<<<<<< HEAD
 > Let's get comfortable with our setup. 
-=======
-> Prettier syntax obviously means you work faster. :-)
->>>>>>> d0f0e1ec3e19010803e3dcc42dd6bddae121dcee
 
 ## Installation Notes
 
