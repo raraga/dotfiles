@@ -8,6 +8,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'posva/vim-vue'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'kien/rainbow_parentheses.vim'
 call plug#end()
 
 """GENERAL SETTINGS"""
@@ -74,7 +75,16 @@ let g:lightline = {
       \ },
       \ }
 
-"Bufferline config
+" Bufferline config
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline#bufferline#filename_modifier = ':t'
+
+" Rainbow Parentheses config
+" Default Toggles
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
