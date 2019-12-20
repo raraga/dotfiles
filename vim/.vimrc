@@ -5,10 +5,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'itchyny/lightline.vim'
-Plug 'flazz/vim-colorschemes'
+Plug 'bling/vim-bufferline'
 Plug 'posva/vim-vue'
-Plug 'mengelbrecht/lightline-bufferline'
 Plug 'chriskempson/base16-vim'
 call plug#end()
 
@@ -21,16 +19,13 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set noswapfile 
-set showtabline=2
 set textwidth=80
-
 
 "Latency Tweak for changing modes
 set timeoutlen=1000 ttimeoutlen=0
 
 """THEME"""
-set noshowmode "Hide redundant mode text
-"colorscheme dracula 
+"set noshowmode "Hide redundant mode text
 colorscheme base16-default-dark
 
 """KEYMAPPINGS"""
@@ -67,27 +62,4 @@ if (empty($TMUX))
   endif
 endif
 
-"Lightline config
-let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
 
-" Bufferline config
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
-let g:lightline#bufferline#filename_modifier = ':t'
-
-" Rainbow Parentheses config
-" Default Toggles
-"au VimEnter * RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
