@@ -11,12 +11,6 @@
     "terminal.integrated.fontSize": 14,
     "workbench.startupEditor": "newUntitledFile",
     "search.location": "panel",
-
-
-
-
-
-    
     "workbench.colorCustomizations": {
         "editorCursor.foreground": "#ffc822",
         "statusBar.background": "#12151a",
@@ -66,7 +60,7 @@
         {
             "before": ["g", "d"],
             "commands": [
-                "workbench.action.closeWindow"
+                "workbench.action.closeActiveEditor"
             ]
         },
     ],
