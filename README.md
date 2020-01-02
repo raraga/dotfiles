@@ -6,7 +6,7 @@
 ### While using NeoVim
 * Symlink `~/.vimrc` to Neovim configuration
 
-        ln -s ~/.vimrc ~/.config/nvim/init.vim
+        $ ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 ### Querks with Vim Themes
 * `colorscheme` is very finnicky unless you create a `colors` directory first with copies of the selected theme.
@@ -16,3 +16,8 @@
 
         $ cp dracula.conf ~/.config/kitty
         $ echo "include dracula.conf" >> ~/.config/kitty/kitty.conf
+
+
+### VSCode Settings
+* `CMD + Shift + P` to pull up Command Prompt
+* Pick *Preferences: Open Settings (JSON)*
