@@ -3,6 +3,17 @@
 
 ## Installation Notes
 
+### Install vim-plug
+* For Vim
+
+	$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
+### Install fzf
+
+	$ sudo apt install fzf
+
 ### While using NeoVim
 * Symlink `~/.vimrc` to Neovim configuration
 
