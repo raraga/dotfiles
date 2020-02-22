@@ -1,13 +1,14 @@
 """PLUGINS"""
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'bling/vim-bufferline'
 Plug 'posva/vim-vue'
-Plug 'chriskempson/base16-vim'
+Plug 'bling/vim-bufferline'
+Plug 'StanAngeloff/php.vim'
+Plug 'dracula/vim', { 'name': 'dracula' }
 call plug#end()
 
 """GENERAL SETTINGS"""
@@ -24,12 +25,10 @@ set textwidth=80
 "Latency Tweak for changing modes
 set timeoutlen=1000 ttimeoutlen=0
 
-"""THEME"""
-"set noshowmode "Hide redundant mode text
-colorscheme base16-default-dark
+"Theme
+colorscheme dracula 
 
 """KEYMAPPINGS"""
-
 "Fuzzy Finding through FZF
 nmap <C-T> :Files<CR>
 nmap<C-n> :NERDTreeToggle<CR>
@@ -61,5 +60,4 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-
 
