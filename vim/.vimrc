@@ -1,48 +1,56 @@
-"PLUGINS
+"Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'posva/vim-vue'
 Plug 'bling/vim-bufferline'
-Plug 'StanAngeloff/php.vim'
-Plug 'w0rp/ale'
+Plug 'posva/vim-vue'
+Plug 'dracula/vim', {'as': 'dracula'}
 call plug#end()
 
-"GENERAL SETTINGS
+"General
 filetype plugin indent on
 syntax on
 set nocompatible
 set relativenumber
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set noswapfile 
 set textwidth=80
 
+"Theme
+"Disable italics while using Source Code Pro font
+let g:dracula_italic=0 
+"Load dracula as default theme
+colorscheme dracula
+
 "Latency Tweak for changing modes
 set timeoutlen=1000 ttimeoutlen=0
+
+"""KEYMAPPINGS"""
 
 "Fuzzy Finding through FZF
 nmap <C-T> :Files<CR>
 nmap<C-n> :NERDTreeToggle<CR>
 
 "Buffers
-
 "Next
 map gn :bn<cr> 
 "Previous
 map gp :bp<cr>
 "Delete
 map gd :bd<cr>  
-"esc in insert mode
+
+" esc in insert mode
 inoremap jj <esc>
-"esc in command mode
+
+" esc in command mode
 cnoremap jj <C-C>
 
-"OTHER CONFIGS
+"""OTHER CONFIGS"""
 
-"Initialize FZF
+""Initialize FZF
 set rtp+=~/.fzf
