@@ -3,6 +3,10 @@
 #
 font:
   size: 16
+  # Think of x offset as kerning and y is line spacing.
+  offset:
+    x: 0
+    y: 5
   normal:
       family: Source Code Pro
       style: Regular
