@@ -9,6 +9,7 @@ Plug 'bling/vim-bufferline'
 Plug 'posva/vim-vue'
 Plug 'crusoexia/vim-monokai'
 Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 "General
