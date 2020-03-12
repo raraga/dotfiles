@@ -7,7 +7,8 @@ Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'bling/vim-bufferline'
 Plug 'posva/vim-vue'
-Plug 'dracula/vim', {'as': 'dracula'}
+Plug 'crusoexia/vim-monokai'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 "General
@@ -22,11 +23,7 @@ set noswapfile
 set textwidth=80
 
 "Theme
-"Disable italics while using Source Code Pro font
-let g:dracula_italic=0 
-"Load dracula as default theme
-colorscheme dracula
-
+colorscheme monokai
 "Latency Tweak for changing modes
 set timeoutlen=1000 ttimeoutlen=0
 
@@ -35,6 +32,7 @@ set timeoutlen=1000 ttimeoutlen=0
 "Fuzzy Finding through FZF
 nmap <C-T> :Files<CR>
 nmap<C-n> :NERDTreeToggle<CR>
+nmap<C-P> :Ack<space>
 
 "Buffers
 "Next
