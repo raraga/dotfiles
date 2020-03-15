@@ -5,16 +5,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'bling/vim-bufferline'
 Plug 'posva/vim-vue'
-Plug 'crusoexia/vim-monokai'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
+Plug 'ap/vim-buftabline'
 call plug#end()
 
 "General
 filetype plugin indent on
 syntax on
+set hidden
 set nocompatible
 set relativenumber
 set tabstop=2
@@ -23,8 +23,6 @@ set expandtab
 set noswapfile 
 set textwidth=80
 
-"Theme
-colorscheme monokai
 "Latency Tweak for changing modes
 set timeoutlen=1000 ttimeoutlen=0
 
