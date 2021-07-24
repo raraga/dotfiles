@@ -6,7 +6,7 @@ ZSH_THEME="agnoster"
 source $HOME/.aliases
 
 # ZSH plugins
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose laravel)
 source $ZSH/oh-my-zsh.sh
 
 # Hooray Neovim
