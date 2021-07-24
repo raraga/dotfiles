@@ -1,34 +1,28 @@
-# Dotfiles - Development configurations
-> Let's get comfortable with our setup. 
+# Dotfiles
 
 ## Installation Notes
 
+
+### Install oh-my-zsh
+
+
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
 ### Install vim-plug
-* For Vim
-
-	$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
-### Install fzf
-
-	$ sudo apt install fzf
-
-### While using NeoVim
-* Symlink `~/.vimrc` to Neovim configuration
-
-        $ ln -s ~/.vimrc ~/.config/nvim/init.vim
-
-### Querks with Vim Themes
-* `colorscheme` is very finnicky unless you create a `colors` directory first with copies of the selected theme.
-
-### Applying Dracula theme to Kitty terminal 
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 
-        $ cp dracula.conf ~/.config/kitty
-        $ echo "include dracula.conf" >> ~/.config/kitty/kitty.conf
+### Install fzf and ripgrep
 
 
-### VSCode Settings
-* `CMD + Shift + P` to pull up Command Prompt
-* Pick *Preferences: Open Settings (JSON)*
+    sudo apt install fzf && sudo apt install ripgrep
+
+
+### Symlink Vim config to Neovim directory config
+
+
+    ln -s ~/.vimrc ~/.config/nvim/init.vim
