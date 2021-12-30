@@ -52,4 +52,6 @@ cp configs/.tmux.conf ~/
 source ~/.zshrc
 source ~/.aliases
 
-
+# Set up some fonts
+echo 'Hit you in the typeface.'
+cp -r fonts/inconsolata /usr/share/fonts/truetype/
