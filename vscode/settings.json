@@ -1,0 +1,48 @@
+{
+    "editor.fontFamily": "Ubuntu Mono",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "editor.lineHeight": 24,
+    "editor.lineNumbers": "relative",
+    "editor.renderLineHighlight": "none",
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Community Material Theme Darker High Contrast",
+    "workbench.activityBar.visible": false,
+    "window.menuBarVisibility": "toggle",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.formatOnSave": false,
+    "[php]": {
+        "editor.formatOnSave": true
+    },
+    "vim.insertModeKeyBindings": [
+        { "before": ["j", "j"], "after": ["<Esc>"] },                                                                                      
+        { "before": ["j", "k"], "after": ["<Esc>"] }  
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["<Leader>", "g", "t"], "commands": [":tabnew"] },
+        { "before": ["<Leader>", "g", "n"], "commands": [":tabnext"] },
+        { "before": ["<Leader>", "g", "p"], "commands": [":tabprev"] },
+        { "before": ["<Leader>", "g", "o"], "commands": [":tabonly"] },
+        { "before": ["<Leader>", "g", "d"], "commands": [":tabclose"] },
+        { "before": ["<Leader>", "p"], "commands": ["workbench.action.showCommands"] },
+        { "before": ["<Leader>", "t"], "commands": ["workbench.action.gotoSymbol"] },
+    ],
+    "vim.leader": "<space>",
+    "intelephense.diagnostics.undefinedTypes": false,
+    "intelephense.diagnostics.undefinedFunctions": false,
+    "intelephense.diagnostics.undefinedConstants": false,
+    "intelephense.diagnostics.undefinedClassConstants": false,
+    "intelephense.diagnostics.undefinedMethods": false,
+    "intelephense.diagnostics.undefinedProperties": false,
+    "intelephense.diagnostics.undefinedVariables": false,
+    "intelephense.licenceKey": "00W1X5NRP9VF6N1",
+    "laravel_goto_view.folders": {
+        "default": "/resources/views"
+    },
+    "laravel_goto_view.extensions": [
+        ".blade.php"
+    ],
+    "blade.format.enable": true
+}
