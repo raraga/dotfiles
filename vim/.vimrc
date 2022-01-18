@@ -1,30 +1,23 @@
 "Plugins
-call plug#begin('~/.config/nvim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-snippets'
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'posva/vim-vue'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-projectionist'
-Plug 'ap/vim-buftabline'
-Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
-Plug 'mbbill/undotree'
-Plug 'jremmen/vim-ripgrep'
-Plug 'noahfrederick/vim-laravel'
-Plug 'sheerun/vim-polyglot'
-Plug 'overcache/NeoSolarized'
-Plug 'jwalton512/vim-blade'
-Plug 'shime/vim-livedown'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'dracula/vim', { 'as': 'dracula' }
+call plug#begin('~/.config/nvim/plugins')
+source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/plugins/fzf_vim.vim
+source ~/.config/nvim/plugins/commentary.vim
+source ~/.config/nvim/plugins/projectionist.vim
+source ~/.config/nvim/plugins/nerdtree.vim
+source ~/.config/nvim/plugins/emmet.vim
+source ~/.config/nvim/plugins/pairs.vim
+source ~/.config/nvim/plugins/buftabline.vim
+source ~/.config/nvim/plugins/undotree.vim
+source ~/.config/nvim/plugins/ripgrep.vim
+source ~/.config/nvim/plugins/polyglot.vim
+source ~/.config/nvim/plugins/solarized.vim
+source ~/.config/nvim/plugins/livedown.vim
 call plug#end()
 
 "General
 syntax on
+set hidden
 set noerrorbells
 set expandtab
 set shiftwidth=4
@@ -40,26 +33,23 @@ set undofile
 set incsearch
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=darkgrey
-
-"Theme
 set termguicolors 
-let g:dracula_colorterm = 0
-colorscheme dracula
+colorscheme NeoSolarized
 
 "Keymappings
-map<C-T> :Files<CR>
 nmap<C-n> :NERDTreeToggle<CR>
 map gn :bn<cr> 
 map gp :bp<cr>
-map gp :bp<cr>
 map ga :noh<cr>
-nmap gsv :vsp<cr>
-nmap gsh :sp<cr>
-nmap gm :LivedownToggle<cr>
 nmap gm :LivedownToggle<cr> 
-
-"Changed to gt to avoid Goto Definition keymap (gd)
 map gt :bd<cr>  
+
+" Use gf to open files that do not exist
+map gf :edit <cfile><cr>
+
+" Reselect after indenting
+vnoremap < <gv
+vnoremap > >gv
 
 inoremap jj <esc>
 cnoremap jj <C-C>
@@ -79,25 +69,13 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>ps :Rg<SPACE>
-
-"Tab autocompletion with CoC
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! s:check_back_space() abort
-      let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
-
-    let g:coc_snippet_next = '<tab>'
-
-" Prettier configuration - install coc-prettier first
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f :Files<cr>
+nmap <leader>F :AllFiles<cr>
+nmap <leader>b :Buffers<cr>
+nmap <leader>h :History<cr>
+nmap <leader>r :Rg<cr>
+nmap <leader>R :Rg<space>
+nmap <leader>gb :GBranches<cr>
 
 " Solarized tmux fix
 set t_8f=^[[38;2;%lu;%lu;%lum
