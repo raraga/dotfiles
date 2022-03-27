@@ -11,7 +11,7 @@ source ~/.config/nvim/plugins/buftabline.vim
 source ~/.config/nvim/plugins/undotree.vim
 source ~/.config/nvim/plugins/ripgrep.vim
 source ~/.config/nvim/plugins/polyglot.vim
-source ~/.config/nvim/plugins/solarized.vim
+source ~/.config/nvim/plugins/nord.vim
 source ~/.config/nvim/plugins/livedown.vim
 call plug#end()
 
@@ -31,10 +31,8 @@ set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=darkgrey
 set termguicolors 
-colorscheme NeoSolarized
+colorscheme nord
 
 "Keymappings
 nmap<C-n> :NERDTreeToggle<CR>
@@ -72,14 +70,7 @@ nnoremap <leader>ps :Rg<SPACE>
 nmap <leader>f :Files<cr>
 nmap <leader>F :AllFiles<cr>
 nmap <leader>b :Buffers<cr>
-nmap <leader>h :History<cr>
+nmap <leader>H :History<cr>
 nmap <leader>r :Rg<cr>
 nmap <leader>R :Rg<space>
 nmap <leader>gb :GBranches<cr>
-
-" Solarized tmux fix
-set t_8f=^[[38;2;%lu;%lu;%lum
-set t_8b=^[[48;2;%lu;%lu;%lum
-
-" Keymap set up for ctags
-map gd :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
