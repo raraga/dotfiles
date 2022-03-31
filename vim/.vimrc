@@ -11,7 +11,8 @@ source ~/.config/nvim/plugins/buftabline.vim
 source ~/.config/nvim/plugins/undotree.vim
 source ~/.config/nvim/plugins/ripgrep.vim
 source ~/.config/nvim/plugins/polyglot.vim
-source ~/.config/nvim/plugins/nord.vim
+source ~/.config/nvim/plugins/solarized.vim
+source ~/.config/nvim/plugins/ayu.vim
 source ~/.config/nvim/plugins/livedown.vim
 call plug#end()
 
@@ -32,7 +33,8 @@ set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
 set termguicolors 
-colorscheme nord
+let ayucolor="dark"
+colorscheme ayu
 
 "Keymappings
 nmap<C-n> :NERDTreeToggle<CR>
