@@ -1,12 +1,12 @@
 #oh-my-zsh installation
 export ZSH="/home/raraga/.oh-my-zsh"
-ZSH_THEME="agnoster"
+ZSH_THEME="intheloop"
 
 # Aliases
 source $HOME/.aliases
 
 # ZSH plugins
-plugins=(git docker docker-compose laravel)
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Hooray Neovim
