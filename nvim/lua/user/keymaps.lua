@@ -29,7 +29,7 @@ keymap('n','<leader>e', ':Lex 30<CR>', opts)
 -- Buffers
 keymap('n', 'gn', ":bn<CR>", opts)
 keymap('n', 'gp', ":bp<CR>", opts)
-keymap('n', 'gd', ":bd<CR>", opts)
+keymap('n', 'gt', ":bd<CR>", opts)
 
 -- Window Navigation
 keymap('n', '<leader>h', '<C-w>h', opts)
@@ -45,3 +45,13 @@ keymap('v', '<A-k>', ':m .-2<CR>==', opts)
 keymap('v', 'p', '_dP', opts)
 
 keymap('n', '<leader>f', '<cmd>Telescope find_files<cr>', opts)
+
+-- LSP 
+keymap('n', 'K', vim.lsp.buf.hover, {buffer=0})
+keymap('n', 'gd', vim.lsp.buf.definition, {buffer=0})
+keymap('n', '<leader>t', vim.lsp.buf.type_definition, {buffer=0})
+keymap('n', 'gi', vim.lsp.buf.type_definition, {buffer=0})
+keymap('n', '<leader>gj', vim.diagnostic.goto_next, {buffer=0})
+keymap('n', '<leader>gk', vim.diagnostic.goto_prev, {buffer=0})
+keymap('n', '<leader>gl', '<cmd>Telescope diagnostics<cr>', {buffer=0})
+keymap('n', '<leader>gr', vim.lsp.buf.rename, {buffer=0})
