@@ -1,21 +1,3 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-require'lspconfig'.intelephense.setup{
-    capabilities = capabilities,
-    on_attach = function()
-    local keymap = vim.keymap.set
-        keymap('n', 'K', vim.lsp.buf.hover, {buffer=0})
-        keymap('n', 'gd', vim.lsp.buf.definition, {buffer=0})
-        keymap('n', '<leader>t', vim.lsp.buf.type_definition, {buffer=0})
-        keymap('n', 'gi', vim.lsp.buf.type_definition, {buffer=0})
-        keymap('n', '<leader>gj', vim.diagnostic.goto_next, {buffer=0})
-        keymap('n', '<leader>gk', vim.diagnostic.goto_prev, {buffer=0})
-        keymap('n', '<leader>gr', vim.lsp.buf.rename, {buffer=0})
-        keymap('n', '<leader>Td', '<cmd>Telescope diagnostics<cr>', {buffer=0})
-        keymap('n', 'glf', '<cmd>Telescope lsp_references<cr>', {buffer=0})
-    end,
-}
-
 -- Install packer
 local is_bootstrap = false
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
@@ -39,71 +21,77 @@ local use = require('packer').use
 use 'wbthomason/packer.nvim'
 use 'neovim/nvim-lspconfig'
 use 'nvim-lua/plenary.nvim'
-use 'navarasu/onedark.nvim'
-use 'hrsh7th/cmp-nvim-lsp'
-use 'hrsh7th/cmp-buffer'
-use 'hrsh7th/cmp-path'
-use 'hrsh7th/cmp-cmdline'
-use 'hrsh7th/nvim-cmp'
-use 'L3MON4D3/LuaSnip'
-use 'saadparwaiz1/cmp_luasnip'
+use 'tjdevries/colorbuddy.nvim'
 
-use {
+-- Solarized Dark configured by Color Buddy
+require('user.plugins.neosolarized').setup()
+
+use({
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
   requires = { 'nvim-lua/plenary.nvim' }
-}
+})
 
-vim.opt.completeopt={"menu", "menuone", "noselect"} 
-
--- Set up nvim-cmp.
-  local cmp = require'cmp'
-
-  cmp.setup({
-    snippet = {
-      expand = function(args)
-        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      end,
-    },
-    mapping = cmp.mapping.preset.insert({
-      ['<C-j>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-k>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' }, -- For luasnip users.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-use {
+use({
   'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  requires = 'kyazdani42/nvim-web-devicons',
+})
+
+use({
+  'akinsho/bufferline.nvim',
+  tag = "v3.*",
+  requires = { 'kyazdani42/nvim-web-devicons' }
+})
+
+use({
+  'nvim-tree/nvim-tree.lua',
+  requires = { 'nvim-tree/nvim-web-devicons', },
+})
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'solarized_dark',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
 }
 
-use {'akinsho/bufferline.nvim', 
-    tag = "v3.*", 
-    requires = { 'kyazdani42/nvim-web-devicons' }
-}
-
-require('onedark').load()
-require('lualine').setup()
 require('bufferline').setup{}
 
--- Intelephense setup
-require'lspconfig'.intelephense.setup{
-    on_attach = function()
-    end,
+require('nvim-tree').setup{
+  view = {
+    side = 'right'
+  }
 }

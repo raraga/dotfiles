@@ -45,6 +45,7 @@ keymap('v', '<A-k>', ':m .-2<CR>==', opts)
 keymap('v', 'p', '_dP', opts)
 
 keymap('n', '<leader>f', '<cmd>Telescope find_files<cr>', opts)
+keymap('n', '<C-n>', '<cmd>NvimTreeToggle<cr>', opts)
 
 -- LSP 
 keymap('n', 'K', vim.lsp.buf.hover, {buffer=0})
