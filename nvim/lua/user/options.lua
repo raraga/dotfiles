@@ -14,4 +14,5 @@ vim.opt.wrap = false
 vim.opt.breakindent = true -- maintain indent when wrapping indented lines
 vim.opt.clipboard = 'unnamedplus' -- Use Linux system clipboard
 vim.opt.showtabline = 2
+vim.opt.swapfile = false
 
