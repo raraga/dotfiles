@@ -1,6 +1,6 @@
 #oh-my-zsh installation
 export ZSH="/home/raraga/.oh-my-zsh"
-ZSH_THEME="intheloop"
+ZSH_THEME="robbyrussell"
 
 # Aliases
 source $HOME/.aliases

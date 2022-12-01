@@ -24,7 +24,6 @@ use 'nvim-lua/plenary.nvim'
 use 'tjdevries/colorbuddy.nvim'
 use 'tpope/vim-commentary'
 use 'jiangmiao/auto-pairs'
-
 use 'hrsh7th/cmp-nvim-lsp'
 use 'hrsh7th/cmp-buffer'
 use 'hrsh7th/cmp-path'
@@ -32,6 +31,10 @@ use 'hrsh7th/cmp-cmdline'
 use 'hrsh7th/nvim-cmp'
 use 'L3MON4D3/LuaSnip'
 use 'saadparwaiz1/cmp_luasnip'
+
+use 'shaunsingh/nord.nvim'
+vim.cmd[[colorscheme nord]]
+vim.g.nord_italic = false
 
 vim.opt.completeopt={"menu", "menuone", "noselect"}
 
@@ -83,9 +86,6 @@ vim.opt.completeopt={"menu", "menuone", "noselect"}
       { name = 'buffer' },
     })
   })
-
--- Solarized Dark configured by Color Buddy
-require('user.plugins.neosolarized').setup()
 
 require'lspconfig'.intelephense.setup{
     capabilities = capabilities,
