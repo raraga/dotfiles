@@ -74,60 +74,38 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
-  ["cmp-buffer"] = {
+  ["bufferline.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15bufferline\frequire\0" },
     loaded = true,
-    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/cmp-buffer",
-    url = "https://github.com/hrsh7th/cmp-buffer"
-  },
-  ["cmp-nvim-lsp"] = {
-    loaded = true,
-    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
-  },
-  ["cmp-nvim-lua"] = {
-    loaded = true,
-    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
-    url = "https://github.com/hrsh7th/cmp-nvim-lua"
-  },
-  ["cmp-path"] = {
-    loaded = true,
-    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/cmp-path",
-    url = "https://github.com/hrsh7th/cmp-path"
-  },
-  cmp_luasnip = {
-    loaded = true,
-    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
   },
   ["emmet-vim"] = {
     loaded = true,
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
   },
-  ["friendly-snippets"] = {
+  ["gitsigns.nvim"] = {
+    config = { "\27LJ\2\nœ\3\0\0\5\0\19\00006\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\t\0'\4\n\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\v\0'\4\f\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\r\0'\4\14\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\15\0'\4\16\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\17\0'\4\18\0B\0\4\1K\0\1\0\29:Gitsigns blame_line<CR>\agb\31:Gitsigns preview_hunk<CR>\agw\":Gitsigns undo_stage_hunk<CR>\agS\29:Gitsigns stage_hunk<CR>\ags\28:Gitsigns prev_hunk<CR>\a[h\28:Gitsigns next_hunk<CR>\a]h\6n\bset\vkeymap\bvim\nsetup\rgitsigns\frequire\0" },
     loaded = true,
-    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
+    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   harpoon = {
     loaded = true,
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
-  ["lsp-zero.nvim"] = {
+  ["lualine.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0" },
     loaded = true,
-    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -139,11 +117,6 @@ _G.packer_plugins = {
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nvim-cmp"] = {
-    loaded = true,
-    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -153,6 +126,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -169,6 +157,11 @@ _G.packer_plugins = {
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/undotree",
@@ -179,6 +172,12 @@ _G.packer_plugins = {
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-floaterm"] = {
+    config = { "\27LJ\2\nÙ\1\0\0\5\0\v\1\0236\0\0\0009\0\1\0*\1\0\0=\1\2\0006\0\0\0009\0\1\0*\1\0\0=\1\3\0006\0\0\0009\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0B\0\4\0016\0\0\0009\0\4\0009\0\5\0'\2\t\0'\3\a\0'\4\n\0B\0\4\1K\0\1\0\"<C-\\><C-n>:FloatermToggle<CR>\6t\24:FloatermToggle<CR>\n<a-h>\6n\bset\vkeymap\20floaterm_height\19floaterm_width\6g\bvimµæÌ™\19™³¦ÿ\3\0" },
+    loaded = true,
+    path = "/home/raraga/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/raraga/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -187,6 +186,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
+time([[Config for bufferline.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\nœ\3\0\0\5\0\19\00006\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\t\0'\4\n\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\v\0'\4\f\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\r\0'\4\14\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\15\0'\4\16\0B\0\4\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\17\0'\4\18\0B\0\4\1K\0\1\0\29:Gitsigns blame_line<CR>\agb\31:Gitsigns preview_hunk<CR>\agw\":Gitsigns undo_stage_hunk<CR>\agS\29:Gitsigns stage_hunk<CR>\ags\28:Gitsigns prev_hunk<CR>\a[h\28:Gitsigns next_hunk<CR>\a]h\6n\bset\vkeymap\bvim\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: vim-floaterm
+time([[Config for vim-floaterm]], true)
+try_loadstring("\27LJ\2\nÙ\1\0\0\5\0\v\1\0236\0\0\0009\0\1\0*\1\0\0=\1\2\0006\0\0\0009\0\1\0*\1\0\0=\1\3\0006\0\0\0009\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0B\0\4\0016\0\0\0009\0\4\0009\0\5\0'\2\t\0'\3\a\0'\4\n\0B\0\4\1K\0\1\0\"<C-\\><C-n>:FloatermToggle<CR>\6t\24:FloatermToggle<CR>\n<a-h>\6n\bset\vkeymap\20floaterm_height\19floaterm_width\6g\bvimµæÌ™\19™³¦ÿ\3\0", "config", "vim-floaterm")
+time([[Config for vim-floaterm]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

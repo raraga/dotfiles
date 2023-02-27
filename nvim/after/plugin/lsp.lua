@@ -1,43 +1,39 @@
-local lsp = require('lsp-zero')
+-- Setup Mason to automatically install LSP servers
+require('mason').setup()
+require('mason-lspconfig').setup({ automatic_installation = true })
 
-lsp.preset('recommended')
+-- PHP
+require('lspconfig').intelephense.setup({})
 
-lsp.ensure_installed({
-	'tsserver',
-	'eslint',
-	'intelephense',
+
+-- Vue, JavaScript, TypeScript
+require('lspconfig').volar.setup({
+    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
 })
 
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true}),
-	['<C-Space>'] = cmp.mapping.complete(),
+-- Tailwind
+require('lspconfig').tailwindcss.setup({})
+
+-- Keymaps
+vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
+vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
+vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
+vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+
+--Dignostic configuration
+vim.diagnostic.config({
+    virtual_text = false,
+    float  = {
+        source = true,
+    }
 })
 
-lsp.set_preferences({
-	sign_icons = {}
-})
-
-lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
-})
-
-lsp.on_attach(function(client, bufnr)
-local opts = {buffer = bufnr, remap = false}
-
-vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-end)
-
-lsp.setup()
+-- Sign configuration
+vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
+vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })

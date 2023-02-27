@@ -4,6 +4,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -13,35 +14,94 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use 'folke/tokyonight.nvim'
-  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use('folke/tokyonight.nvim')
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use('tpope/vim-commentary')
   use('mattn/emmet-vim')
   use('jiangmiao/auto-pairs')
+  use('kyazdani42/nvim-web-devicons')
 
-  use {
-  'VonHeikemen/lsp-zero.nvim',
-  requires = {
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
+  use({'nvim-treesitter/nvim-treesitter', 
+      run = function()
+          require('nvim-treesitter.install').update({ with_sync = true })
+      end,
+      requires = {
+          'JoosepAlviste/nvim-ts-context-commentstring',
+          'nvim-treesitter/nvim-treesitter-textobjects',
+      },
+  })
 
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-buffer'},
-    {'hrsh7th/cmp-path'},
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/cmp-nvim-lua'},
+  -- Floating Terminal
+  use({
+      'voldikss/vim-floaterm',
+      config = function()
+          vim.g.floaterm_width = 0.8
+          vim.g.floaterm_height = 0.8
+          vim.keymap.set('n', '<a-h>', ':FloatermToggle<CR>')
+          vim.keymap.set('t', '<a-h>',  '<C-\\><C-n>:FloatermToggle<CR>')
+      end
+  })
 
-    -- Snippets
-    {'L3MON4D3/LuaSnip'},
-    {'rafamadriz/friendly-snippets'},
-  }
-}
+  -- Status Line
+  use({
+      'nvim-lualine/lualine.nvim',
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = function()
+          require('lualine').setup()
+      end,
+  })
+  
+  -- Tabs
+  use({
+      'akinsho/bufferline.nvim',
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = function()
+          require('bufferline').setup()
+      end,
+  })
+
+  -- Git integration
+   use({
+       'lewis6991/gitsigns.nvim',
+       config = function()
+           require('gitsigns').setup()
+           vim.keymap.set('n', ']h', ':Gitsigns next_hunk<CR>')
+           vim.keymap.set('n', '[h', ':Gitsigns prev_hunk<CR>')
+           vim.keymap.set('n', 'gs', ':Gitsigns stage_hunk<CR>')
+           vim.keymap.set('n', 'gS', ':Gitsigns undo_stage_hunk<CR>')
+           vim.keymap.set('n', 'gw', ':Gitsigns preview_hunk<CR>')
+           vim.keymap.set('n', 'gb', ':Gitsigns blame_line<CR>')
+       end,
+   })
+  
+-- LSP Support
+  use ({
+    'neovim/nvim-lspconfig',
+
+    requires = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+      },
+})
+
+-- Completion
+use({
+    'hrsh7th/nvim-cmp',
+    requires = {
+        'hrsh7th/cmp-nivm-lsp',
+        'hrsh7th/cmp-nivm-lsp-signature-help',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip',
+        'onsails/lspkind-nvim',
+    }
+})
+
+if packer_bootstrap then
+	require('packer').sync()
+end
 
 end)

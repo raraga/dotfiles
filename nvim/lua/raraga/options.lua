@@ -16,8 +16,10 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-
 vim.opt.termguicolors = true
+
+-- fix shifting on column when toggling gitsigns
+vim.opt.signcolumn = 'yes:2'
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
@@ -26,4 +28,4 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
-vim.cmd[[ colorscheme tokyonight-night ]]
+vim.cmd[[colorscheme tokyonight-night]]
