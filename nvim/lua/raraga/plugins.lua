@@ -14,7 +14,7 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use('folke/tokyonight.nvim')
+  use('EdenEast/nightfox.nvim')
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
@@ -22,8 +22,7 @@ return require('packer').startup(function(use)
   use('mattn/emmet-vim')
   use('jiangmiao/auto-pairs')
   use('kyazdani42/nvim-web-devicons')
-
-  use({'nvim-treesitter/nvim-treesitter', 
+  use({'nvim-treesitter/nvim-treesitter',
       run = function()
           require('nvim-treesitter.install').update({ with_sync = true })
       end,
@@ -49,10 +48,13 @@ return require('packer').startup(function(use)
       'nvim-lualine/lualine.nvim',
       requires = 'kyazdani42/nvim-web-devicons',
       config = function()
-          require('lualine').setup()
+          require('lualine').setup {
+              options = {
+                  theme = 'nord'
+              }
+          }
       end,
   })
-  
   -- Tabs
   use({
       'akinsho/bufferline.nvim',
@@ -75,14 +77,15 @@ return require('packer').startup(function(use)
            vim.keymap.set('n', 'gb', ':Gitsigns blame_line<CR>')
        end,
    })
-  
 -- LSP Support
   use ({
     'neovim/nvim-lspconfig',
-
     requires = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
+        'b0o/schemastore.nvim',
+        'jose-elias-alvarez/null-ls.nvim',
+        'jayp0521/mason-null-ls.nvim',
       },
 })
 
@@ -90,14 +93,34 @@ return require('packer').startup(function(use)
 use({
     'hrsh7th/nvim-cmp',
     requires = {
-        'hrsh7th/cmp-nivm-lsp',
-        'hrsh7th/cmp-nivm-lsp-signature-help',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-nvim-lsp-signature-help',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
         'onsails/lspkind-nvim',
     }
+})
+
+-- PHP Refactoring Tools
+use({
+  'phpactor/phpactor',
+  ft = 'php',
+  run = 'composer install --no-dev --optimize-autoloader',
+  config = function()
+    vim.keymap.set('n', '<Leader>pm', ':PhpactorContextMenu<CR>')
+    vim.keymap.set('n', '<Leader>pn', ':PhpactorClassNew<CR>')
+  end,
+})
+
+-- vim-test
+use('vim-test/vim-test')
+
+-- Project Configuration.
+use({
+  'tpope/vim-projectionist',
+  requires = 'tpope/vim-dispatch',
 })
 
 if packer_bootstrap then

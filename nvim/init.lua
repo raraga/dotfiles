@@ -1,3 +1,3 @@
 require('raraga.remap')
-require('raraga.plugins')
 require('raraga.options')
+require('raraga.plugins')
