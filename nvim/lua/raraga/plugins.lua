@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use('Shatur/neovim-ayu')
   use('EdenEast/nightfox.nvim')
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
