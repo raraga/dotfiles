@@ -1,0 +1,9 @@
+let mapleader=" "
+set nu
+set relativenumber
+
+map gn :bn<cr>
+map gp :bp<cr>
+map gt :bd<cr>
+inoremap jj <Esc>
+cnoremap jj <Esc>
