@@ -1,0 +1,77 @@
+#!/usr/bin/bash
+# A development environment setup script for Debian 12
+# Notes:
+# - Assumes SSH keys are already set up with Gitlab.
+# - Default root user is disabled.
+
+# install dependencies
+sudo apt install git tmux software-properties-common ca-certificates lsb-release
+apt-transport-https wget ninja-build gettext cmake unzip curl kitty -y
+
+cd ~/.config
+echo 'Copying over dotfiles...'
+git clone https://gitlab.com/raraga/dotfiles
+
+cp ~/.config/dotfiles/.bashrc ~/
+cp ~/.config/dotfiles/.bash_aliases ~/
+mkdir ~/.config/kitty
+cp ~/.config/dotfiles/kitty/kitty.conf ~/.config/kitty
+cp ~/.config/dotfiles/kitty/current.conf ~/.config/kitty
+mkdir ~/.config/tmux
+cp ~/.config/dotfiles/tmux/.tmux.conf ~/.config/tmux/tmux.conf
+source ~/.bashrc
+source ~/.bash_aliases
+echo 'Dotfiles have been copied!'
+
+# FZF
+echo 'Setting up FZF...'
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+source ~/.bashrc
+echo 'FZF installed'
+
+# php 8.2
+# add the SURY repository
+echo 'Installing PHP via SURY repository...'
+sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+# add the GPG key
+wget -qO - https://packages.sury.org/php/apt.gpg | sudo tee /etc/apt/trusted.gpg.d/apt.gpg
+sudo apt install php8.2
+echo 'PHP installed!'
+
+# composer 2.5.5 (as of 8/24)
+echo 'Installing Composer...'
+sudo apt install composer
+echo 'Composer installed!'
+
+# build nvim with lua
+# creating new directory for building local binaries
+echo 'Creating local binary directory...'
+mkdir ~/.local/bin
+cd ~/.local/bin
+
+echo 'Building Neovim from source...'
+git clone https://github.com/neovim/neovim
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+echo 'Neovim has been built!'
+
+echo 'Installing Lua'
+sudo apt install lua5.4
+
+echo 'Copying over Neovim configuration..'
+cp -r  ~/.config/dotfiles/nvim ~/.config/
+echo 'Configuration copied!'
+
+# setup node via NVM
+echo 'Setting up Node via NVM...'
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+source ~/.bashrc
+# opt into using Node version 16
+nvm install 16
+echo 'Node has been set up!'
+
+# installing bitsream vera sans nerdfont
+cd /tmp
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/BitstreamVeraSansMono.zip
+unzip BitstreamVeraSansMono.zip -dbitstream-vera-sans-mono
