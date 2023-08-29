@@ -75,3 +75,4 @@ echo 'Node has been set up!'
 cd /tmp
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/BitstreamVeraSansMono.zip
 unzip BitstreamVeraSansMono.zip -dbitstream-vera-sans-mono
+sudo cp -r bitsream-vera-sans-mono /usr/share/fonts/truetype/
