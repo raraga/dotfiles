@@ -36,7 +36,6 @@ keymap('n','<leader>e', ':Lex 30<CR>', opts)
 keymap('n', 'gn', ":bn<CR>", opts)
 keymap('n', 'gp', ":bp<CR>", opts)
 keymap('n', 'gt', ":bd<CR>", opts)
-keymap('n', 'gT', ":%bd<CR>", opts)
 
 -- Window Navigation
 keymap('n', '<leader>h', '<C-w>h', opts)
@@ -46,4 +45,7 @@ keymap('n', '<leader>l', '<C-w>l', opts)
 
 -- Clever yank persistance per Chris@machine
 keymap('v', 'p', '_dP', opts)
+
+-- Goto Laravel Views
+keymap('n', '<leader>gg', '<cmd>GoBlade<CR>', opts)
 

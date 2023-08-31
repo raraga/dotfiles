@@ -14,8 +14,7 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use('navarasu/onedark.nvim')
-  use('theprimeagen/harpoon')
+  use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use('tpope/vim-commentary')
@@ -43,18 +42,6 @@ return require('packer').startup(function(use)
       end
   })
 
-  -- Status Line
-  use({
-      'nvim-lualine/lualine.nvim',
-      requires = 'kyazdani42/nvim-web-devicons',
-      config = function()
-          require('lualine').setup {
-              options = {
-                  theme = 'nord'
-              }
-          }
-      end,
-  })
   -- Tabs
   use({
       'akinsho/bufferline.nvim',
@@ -77,6 +64,7 @@ return require('packer').startup(function(use)
            vim.keymap.set('n', 'gb', ':Gitsigns blame_line<CR>')
        end,
    })
+
 -- LSP Support
   use ({
     'neovim/nvim-lspconfig',
@@ -121,6 +109,13 @@ use('vim-test/vim-test')
 use({
   'tpope/vim-projectionist',
   requires = 'tpope/vim-dispatch',
+})
+
+use({
+    'ccaglak/larago.nvim',
+    requires = {
+        'nvim-lua/plenary.nvim'
+    }
 })
 
 if packer_bootstrap then
