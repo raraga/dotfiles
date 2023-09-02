@@ -1,8 +1,7 @@
 #!/usr/bin/bash
-# A development environment setup script for Debian 12
+# A development environment setup script for Ubuntu 22.04
 # Notes:
 # - Assumes SSH keys are already set up with Gitlab.
-# - Default root user is disabled.
 
 # install dependencies
 sudo apt install git tmux software-properties-common ca-certificates lsb-release
@@ -13,14 +12,12 @@ echo 'Copying over dotfiles...'
 git clone https://gitlab.com/raraga/dotfiles
 
 cp ~/.config/dotfiles/.bashrc ~/
-cp ~/.config/dotfiles/.bash_aliases ~/
 mkdir ~/.config/kitty
 cp ~/.config/dotfiles/kitty/kitty.conf ~/.config/kitty
 cp ~/.config/dotfiles/kitty/current.conf ~/.config/kitty
 mkdir ~/.config/tmux
 cp ~/.config/dotfiles/tmux/.tmux.conf ~/.config/tmux/tmux.conf
 source ~/.bashrc
-source ~/.bash_aliases
 echo 'Dotfiles have been copied!'
 
 # FZF
@@ -31,17 +28,20 @@ source ~/.bashrc
 echo 'FZF installed'
 
 # php 8.2
-# add the SURY repository
-echo 'Installing PHP via SURY repository...'
-sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
-# add the GPG key
-wget -qO - https://packages.sury.org/php/apt.gpg | sudo tee /etc/apt/trusted.gpg.d/apt.gpg
-sudo apt install php8.2
+# add the repository
+echo 'Installing PHP via PPA repository...'
+sudo add-apt-repository ppa:ondrej/php
+sudo apt install php8.2 php8.2-cli php8.2-common php8.2-fpm php8.2-mysql php8.2-zip php8.2-gd php8.2-mbstring php8.2-curl php8.2-xml php8.2-bcmath -y
 echo 'PHP installed!'
 
-# composer 2.5.5 (as of 8/24)
+# install latest composer
 echo 'Installing Composer...'
 sudo apt install composer
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+mv composer.phar /usr/local/composer
 echo 'Composer installed!'
 
 # build nvim with lua
@@ -63,7 +63,7 @@ echo 'Copying over Neovim configuration..'
 cp -r  ~/.config/dotfiles/nvim ~/.config/
 echo 'Configuration copied!'
 
-# setup node via NVM
+# setup node via NVM (version 16 has been the most stable when using Laravel)
 echo 'Setting up Node via NVM...'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 source ~/.bashrc
@@ -71,8 +71,5 @@ source ~/.bashrc
 nvm install 16
 echo 'Node has been set up!'
 
-# installing bitsream vera sans nerdfont
-cd /tmp
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/BitstreamVeraSansMono.zip
-unzip BitstreamVeraSansMono.zip -dbitstream-vera-sans-mono
-sudo cp -r bitsream-vera-sans-mono /usr/share/fonts/truetype/
+# installing inconsolata nerd font
+sudo cp -r ~/.config/dotfiles/fonts/inconsolata /usr/share/fonts/truetype/
