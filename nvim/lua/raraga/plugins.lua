@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('tpope/vim-commentary')
   use('mattn/emmet-vim')
+  use('jwalton512/vim-blade')
   use('jiangmiao/auto-pairs')
   use('kyazdani42/nvim-web-devicons')
   use({'nvim-treesitter/nvim-treesitter',
