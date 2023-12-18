@@ -12,11 +12,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { import = 'user.plugins.material' },
+    { import = 'user.plugins.catppuccin' },
+    { import = 'user.plugins.onedark' },
     { import = 'user.plugins.telescope' },
     { import = 'user.plugins.cmp' },
     { import = 'user.plugins.lspconfig' },
     { import = 'user.plugins.treesitter' },
     { import = 'user.plugins.larago' },
-    { import = 'user.plugins.vim-blade' }
+    { import = 'user.plugins.vim-blade' },
+    { import = 'user.plugins.commentary' },
+    { import = 'user.plugins.todo-comments' },
+    { import = 'user.plugins.trouble' }
 })
+
+require('onedark').setup {
+    style = 'light'
+}
+require('onedark').load()
+
+require('todo-comments').setup()
