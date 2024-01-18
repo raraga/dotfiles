@@ -12,9 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { import = 'user.plugins.catppuccin' },
-    { import = 'user.plugins.onedark' },
     { import = 'user.plugins.telescope' },
+    { import = 'user.plugins.nightfox' },
     { import = 'user.plugins.cmp' },
     { import = 'user.plugins.lspconfig' },
     { import = 'user.plugins.treesitter' },
@@ -24,10 +23,5 @@ require("lazy").setup({
     { import = 'user.plugins.todo-comments' },
     { import = 'user.plugins.trouble' }
 })
-
-require('onedark').setup {
-    style = 'light'
-}
-require('onedark').load()
 
 require('todo-comments').setup()

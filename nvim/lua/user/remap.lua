@@ -39,6 +39,9 @@ keymap('n', 'gt', ":bd<CR>", opts)
 keymap('n', '<leader>ls', ":Telescope buffers<CR>", opts)
 keymap('n', '<leader>tl', ":TodoTelescope<CR>", opts)
 
+-- Shell Commands
+keymap('n', '<leader>,', ":! ")
+
 -- Window Navigation
 keymap('n', '<leader>h', '<C-w>h', opts)
 keymap('n', '<leader>j', '<C-w>j', opts)

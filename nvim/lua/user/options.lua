@@ -24,7 +24,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
-vim.cmd [[ colorscheme onedark ]]
-vim.cmd [[ set background=light ]]
+vim.cmd [[ colorscheme dayfox ]]
 
 vim.g.skip_ts_context_commentstrong_module = true

@@ -1,21 +1,15 @@
-#oh-my-zsh installation
-export ZSH="/home/raraga/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-
-# Aliases
-source $HOME/.aliases
-
-# ZSH plugins
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="essembeh"
 plugins=(git)
+
 source $ZSH/oh-my-zsh.sh
 
-# Hooray Neovim
-export EDITOR="nvim"
+# aliases
+alias v='nvim'
+alias g='git'
+alias bkp='cd ~/.local/dev/work/bkprecision'
+alias sshbit='bash ~/.local/scripts/ssh-agent-bitbucket.sh'
 
-# Initialize Laravel
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-
-# Global FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export NVM_DIR="$HOME/.nvm"
