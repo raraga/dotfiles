@@ -1,14 +1,14 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="essembeh"
-plugins=(git)
+plugins=(git docker)
 
 source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias v='nvim'
 alias g='git'
-alias bkp='cd ~/.local/dev/work/bkprecision'
-alias sshbit='bash ~/.local/scripts/ssh-agent-bitbucket.sh'
+alias sail='bash ./vendor/bin/sail'
+alias bkp='cd ~/.local/dev/php/bkprecision'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

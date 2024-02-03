@@ -21,7 +21,9 @@ require("lazy").setup({
     { import = 'user.plugins.vim-blade' },
     { import = 'user.plugins.commentary' },
     { import = 'user.plugins.todo-comments' },
-    { import = 'user.plugins.trouble' }
+    { import = 'user.plugins.trouble' },
+    { import = 'user.plugins.floaterm' },
+    { import = 'user.plugins.vimtest' }
 })
 
 require('todo-comments').setup()
