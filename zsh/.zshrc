@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="essembeh"
+ZSH_THEME="flazz"
 plugins=(git docker)
 
 source $ZSH/oh-my-zsh.sh
@@ -8,7 +8,8 @@ source $ZSH/oh-my-zsh.sh
 alias v='nvim'
 alias g='git'
 alias sail='bash ./vendor/bin/sail'
-alias bkp='cd ~/.local/dev/php/bkprecision'
+alias bkp='cd ~/Sites/bkprecision'
+alias sa='./vendor/bin/sail artisan'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

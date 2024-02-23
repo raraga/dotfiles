@@ -84,11 +84,13 @@ return {
             return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
           end,
         }),
-        null_ls.builtins.formatting.pint.with({
-          condition = function(utils)
-            return utils.root_has_file({ 'vendor/bin/pint' })
-          end,
-        }),
+
+        -- null_ls.builtins.formatting.pint.with({
+        --   condition = function(utils)
+        --     return utils.root_has_file({ 'vendor/bin/pint' })
+        --   end,
+        -- }),
+
         null_ls.builtins.formatting.prettier.with({
           condition = function(utils)
             return utils.root_has_file({ '.prettierrc', '.prettierrc.json', '.prettierrc.yml', '.prettierrc.js', 'prettier.config.js' })
