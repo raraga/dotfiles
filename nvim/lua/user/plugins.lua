@@ -13,9 +13,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { import = 'user.plugins.telescope' },
-    { import = 'user.plugins.nightfox' },
     { import = 'user.plugins.solarized' },
-    { import = 'user.plugins.monokai' },
+    { import = 'user.plugins.solarized_light' },
+    { import = 'user.plugins.onedark' },
+    { import = 'user.plugins.nightfox' },
+    { import = 'user.plugins.sonokai' },
+    { import = 'user.plugins.zenburn' },
     { import = 'user.plugins.cmp' },
     { import = 'user.plugins.lspconfig' },
     { import = 'user.plugins.treesitter' },
@@ -30,8 +33,9 @@ require("lazy").setup({
 })
 
 require('todo-comments').setup()
-require('lualine').setup{
-    options = { theme = 'codedark' }
-}
 
-require('monokai').setup{}
+require('lualine').setup {
+    options = {
+        theme = "material"
+    }
+}

@@ -82,7 +82,7 @@ return {
         }),
       },
       mapping = {
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ["<C-j>"] = cmp.mapping(function(fallback)
           -- print('tab...')
           if cmp.visible() then
             cmp.select_next_item()
@@ -94,7 +94,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        ["<C-k>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then

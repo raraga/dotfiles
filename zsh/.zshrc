@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="flazz"
+ZSH_THEME="afowler"
 plugins=(git docker)
 
 source $ZSH/oh-my-zsh.sh
@@ -7,6 +7,9 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias v='nvim'
 alias g='git'
+alias gl='git log'
+alias gs='git status'
+alias gaa='git add -A'
 alias sail='bash ./vendor/bin/sail'
 alias bkp='cd ~/Sites/bkprecision'
 alias sa='./vendor/bin/sail artisan'

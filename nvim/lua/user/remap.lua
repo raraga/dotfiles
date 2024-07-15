@@ -60,3 +60,7 @@ keymap('n', '<leader>T', ':TestFile<CR>', opts)
 keymap('n', '<leader>ts', ':TestSuite<CR>', opts)
 keymap('n', '<leader>tl', ':TestLast<CR>', opts)
 keymap('n', '<leader>tv', ':TestVisit<CR>', opts)
+
+-- Todo-comments
+keymap('n', '<leader>do', ':TodoQuickFix<CR>', opts)
+keymap('n', '<leader>ds', ':TodoTelescope<CR>')
