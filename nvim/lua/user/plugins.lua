@@ -17,6 +17,7 @@ require("lazy").setup({
     { import = 'user.plugins.solarized_light' },
     { import = 'user.plugins.onedark' },
     { import = 'user.plugins.nightfox' },
+    { import = 'user.plugins.paper' },
     { import = 'user.plugins.sonokai' },
     { import = 'user.plugins.zenburn' },
     { import = 'user.plugins.cmp' },
@@ -36,6 +37,6 @@ require('todo-comments').setup()
 
 require('lualine').setup {
     options = {
-        theme = "material"
+        theme = "papercolor_light"
     }
 }
