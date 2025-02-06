@@ -24,7 +24,7 @@ vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 vim.opt.termguicolors = true
-vim.cmd[[ colorscheme PaperColor ]]
-vim.cmd[[ set background=light ]]
+vim.cmd[[ colorscheme NeoSolarized  ]]
+vim.cmd[[ set background=dark ]]
 
 vim.g.skip_ts_context_commentstrong_module = true

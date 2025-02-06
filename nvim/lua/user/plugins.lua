@@ -15,11 +15,7 @@ require("lazy").setup({
     { import = 'user.plugins.telescope' },
     { import = 'user.plugins.solarized' },
     { import = 'user.plugins.solarized_light' },
-    { import = 'user.plugins.onedark' },
-    { import = 'user.plugins.nightfox' },
-    { import = 'user.plugins.paper' },
-    { import = 'user.plugins.sonokai' },
-    { import = 'user.plugins.zenburn' },
+    { import = 'user.plugins.vscode' },
     { import = 'user.plugins.cmp' },
     { import = 'user.plugins.lspconfig' },
     { import = 'user.plugins.treesitter' },
@@ -29,7 +25,6 @@ require("lazy").setup({
     { import = 'user.plugins.todo-comments' },
     { import = 'user.plugins.trouble' },
     { import = 'user.plugins.floaterm' },
-    { import = 'user.plugins.vimtest' },
     { import = 'user.plugins.lualine' }
 })
 
@@ -37,6 +32,6 @@ require('todo-comments').setup()
 
 require('lualine').setup {
     options = {
-        theme = "papercolor_light"
+        theme = "solarized_dark"
     }
 }
