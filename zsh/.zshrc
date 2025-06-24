@@ -12,6 +12,8 @@ alias gaa='git add -A'
 alias sail='bash ./vendor/bin/sail'
 alias bkp='cd ~/Sites/bkprecision'
 alias sa='./vendor/bin/sail artisan'
+alias dbr='./vendor/bin/sail mysql < ~/Databases/vault/staging/bkweb_staging.sql'
+alias steam='__GL_CONSTANT_FRAME_RATE_HINT=3 steam'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
