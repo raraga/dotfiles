@@ -1,5 +1,5 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
+-- vim.opt.nu = true
+-- vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -24,7 +24,6 @@ vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 vim.opt.termguicolors = true
-vim.cmd[[ colorscheme PaperColor]]
-vim.cmd[[ set background=light ]]
+vim.cmd[[ colorscheme habamax ]]
 
 vim.g.skip_ts_context_commentstrong_module = true

@@ -54,8 +54,12 @@ keymap('v', 'p', '_dP', opts)
 -- Goto Laravel Views
 keymap('n', '<leader>gg', '<cmd>GoBlade<CR>', opts)
 
--- neotest
-keymap('n', '<leader>tn', function() require('neotest').run.run() end)
+-- vimtest
+keymap('n', '<leader>t', ":TestNearest<CR>")
+keymap('n', '<leader>T', ":TestFile<CR>")
+keymap('n', '<leader>a', ":TestSuite<CR>")
+keymap('n', '<leader>l', ":TestLast<CR>")
+keymap('n', '<leader>g', ":TestVisit<CR>")
 
 -- Todo-comments
 keymap('n', '<leader>do', ':TodoQuickFix<CR>', opts)
