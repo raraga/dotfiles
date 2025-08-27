@@ -1,48 +1,56 @@
 {
-    "editor.fontFamily": "Ubuntu Mono",
-    "editor.minimap.enabled": false,
+    "editor.fontFamily": "MonoLisa",
     "editor.fontSize": 16,
     "terminal.integrated.fontSize": 16,
-    "editor.lineHeight": 24,
-    "editor.lineNumbers": "relative",
+    "editor.fontLigatures": true,
+    "editor.lineNumbers": "off",
     "editor.renderLineHighlight": "none",
-    "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Community Material Theme Darker High Contrast",
-    "workbench.activityBar.visible": false,
-    "window.menuBarVisibility": "toggle",
+    "editor.guides.indentation": false,
     "editor.scrollbar.vertical": "hidden",
-    "editor.formatOnSave": false,
-    "[php]": {
-        "editor.formatOnSave": true
-    },
+    "workbench.sideBar.location": "right",
+    "workbench.editor.enablePreview": false,
+    "window.menuBarVisibility": "toggle",
     "vim.insertModeKeyBindings": [
         { "before": ["j", "j"], "after": ["<Esc>"] },                                                                                      
         { "before": ["j", "k"], "after": ["<Esc>"] }  
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
-        { "before": ["<Leader>", "g", "t"], "commands": [":tabnew"] },
-        { "before": ["<Leader>", "g", "n"], "commands": [":tabnext"] },
-        { "before": ["<Leader>", "g", "p"], "commands": [":tabprev"] },
-        { "before": ["<Leader>", "g", "o"], "commands": [":tabonly"] },
-        { "before": ["<Leader>", "g", "d"], "commands": [":tabclose"] },
+        { "before": ["g", "n"], "commands": [":tabnext"] },
+        { "before": ["g", "p"], "commands": [":tabprev"] },
+        { "before": ["g", "o"], "commands": [":tabonly"] },
+        { "before": ["g", "t"], "commands": [":tabclose"] },
         { "before": ["<Leader>", "p"], "commands": ["workbench.action.showCommands"] },
-        { "before": ["<Leader>", "t"], "commands": ["workbench.action.gotoSymbol"] },
+        { "before": ["<Leader>", "f"], "commands": ["workbench.action.quickOpen"] },
+        { "before": ["<Leader>", "x"], "commands": ["workbench.view.extensions"] },
+        { "before": ["<Leader>", "a"], "commands": ["workbench.action.showEditorsInActiveGroup"] },
     ],
     "vim.leader": "<space>",
-    "intelephense.diagnostics.undefinedTypes": false,
-    "intelephense.diagnostics.undefinedFunctions": false,
-    "intelephense.diagnostics.undefinedConstants": false,
-    "intelephense.diagnostics.undefinedClassConstants": false,
-    "intelephense.diagnostics.undefinedMethods": false,
-    "intelephense.diagnostics.undefinedProperties": false,
-    "intelephense.diagnostics.undefinedVariables": false,
-    "intelephense.licenceKey": "00W1X5NRP9VF6N1",
-    "laravel_goto_view.folders": {
-        "default": "/resources/views"
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
     },
-    "laravel_goto_view.extensions": [
-        ".blade.php"
-    ],
-    "blade.format.enable": true
+    "workbench.startupEditor": "none",
+    "intelephense.licenceKey": "00W1X5NRP9VF6N1",
+    "terminal.integrated.tabs.location": "left",
+    "terminal.integrated.tabs.enabled": false,
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.location": "hidden",
+    "editor.stickyScroll.enabled": false,
+    "window.customTitleBarVisibility": "windowed",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.editor.editorActionsLocation": "hidden",
+    "better-pest.docker.enable": true,
+    "better-pest.docker.command": "docker-compose run --rm laravel.test sail",
+    "better-pest.docker.paths": {
+        "${workspaceFolder}": "/var/www/html"
+    },
+    "Laravel.phpEnvironment": "sail",
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.editor.showTabs": "none",
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#d33682",
+        "editorCursor.background": "#073642",
+        "terminalCursor.foreground": "#d33682"
+    }
 }

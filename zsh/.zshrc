@@ -20,3 +20,6 @@ alias steam='__GL_CONSTANT_FRAME_RATE_HINT=3 steam'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Created by `pipx` on 2025-08-18 20:57:30
+export PATH="$PATH:/home/raraga/.local/bin"
