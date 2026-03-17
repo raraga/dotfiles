@@ -1,0 +1,52 @@
+urxvt.font: xft:Hack Nerd Font:pixelsize=15
+urxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
+urxvt.scrollBar: false
+
+! Solarized Light Color Palette
+! Base colors
+*.base03:    #002b36
+*.base02:    #073642
+*.base01:    #586e75
+*.base00:    #657b83
+*.base0:     #839496
+*.base1:     #93a1a1
+*.base2:     #eee8d5
+*.base3:     #fdf6e3
+
+! Accent colors
+*.yellow:    #b58900
+*.orange:    #cb4b16
+*.red:       #dc322f
+*.magenta:   #d33682
+*.violet:    #6c71c4
+*.blue:      #268bd2
+*.cyan:      #2aa198
+*.green:     #859900
+
+! UI element colors
+*.foreground:    #657b83
+*.background:    #fdf6e3
+*.cursorColor:   #657b83
+
+! Terminal colors (ansi)
+*.color0:  #002b36
+*.color1:  #dc322f
+*.color2:  #859900
+*.color3:  #b58900
+*.color4:  #268bd2
+*.color5:  #d33682
+*.color6:  #2aa198
+*.color7:  #eee8d5
+*.color8:  #073642
+*.color9:  #cb4b16
+*.color10: #6c71c4
+*.color11: #586e75
+*.color12: #839496
+*.color13: #d33682
+*.color14: #2aa198
+*.color15: #fdf6e3
+
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show

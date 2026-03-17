@@ -11,12 +11,8 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set noswapfile
-
-syntax enable
+let g:solarized_termcolors = 16
 set background=light
-set t_Co=256
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
 colorscheme solarized
 
 let mapleader = " "
@@ -27,9 +23,25 @@ map gp :bp<CR>
 map gt :bd<CR>
 map <leader>f :Files <CR>
 
+let g:solarized_termcolors = 16
+
 "hide tilde characters on blank lines
 let &fillchars ..= ',eob: '
 
 "hide preview window in fzf.vim
 let g:fzf_vim = {}
 let g:fzf_vim.preview_window = []
+let g:fzf_colors =
+            \ { 'fg':      ['fg', 'Normal'],
+            \ 'bg':      ['bg', 'Normal'],
+            \ 'hl':      ['fg', 'Comment'],
+            \ 'fg+':     ['fg', 'Normal', 'CursorLine', 'Visual'],
+            \ 'bg+':     ['bg', 'Normal', 'CursorLine', 'Visual'],
+            \ 'hl+':     ['fg', 'Statement'],
+            \ 'info':    ['fg', 'PreProc'],
+            \ 'border':  ['fg', 'Ignore'],
+            \ 'prompt':  ['fg', 'Conditional'],
+            \ 'pointer': ['fg', 'Exception'],
+            \ 'marker':  ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header':  ['fg', 'Comment'] }
