@@ -1,8 +1,13 @@
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'jwalton512/vim-blade'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
+syntax enable
+set number
+set fillchars=eob:\ 
 set nocompatible
 set wildmenu
 set textwidth=80
@@ -11,9 +16,11 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set noswapfile
-let g:solarized_termcolors = 16
+set termguicolors
+
+set t_Co=256
 set background=light
-colorscheme solarized
+colorscheme PaperColor
 
 let mapleader = " "
 
@@ -23,20 +30,13 @@ map gp :bp<CR>
 map gt :bd<CR>
 map <leader>f :Files <CR>
 
-let g:solarized_termcolors = 16
-
-"hide tilde characters on blank lines
-let &fillchars ..= ',eob: '
-
-"hide preview window in fzf.vim
-let g:fzf_vim = {}
-let g:fzf_vim.preview_window = []
+let g:fzf_preview_window = []
 let g:fzf_colors =
             \ { 'fg':      ['fg', 'Normal'],
             \ 'bg':      ['bg', 'Normal'],
             \ 'hl':      ['fg', 'Comment'],
-            \ 'fg+':     ['fg', 'Normal', 'CursorLine', 'Visual'],
-            \ 'bg+':     ['bg', 'Normal', 'CursorLine', 'Visual'],
+            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
             \ 'hl+':     ['fg', 'Statement'],
             \ 'info':    ['fg', 'PreProc'],
             \ 'border':  ['fg', 'Ignore'],
